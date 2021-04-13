@@ -48,6 +48,19 @@ table {
 body{
     font-family: Tilium Light;
 }
+
+body h2{
+    font-size: 36px;
+}
+
+body h3{
+    font-size: 32px;
+}
+
+h2,h3,h4,h5,h6, p {
+    margin-bottom: 20px;
+}
+
 /* Header */
 .header{
     position: fixed;
@@ -97,7 +110,23 @@ body{
         }
     }
     
-   
+}
 
-   
+// Btn
+
+.btn{
+    padding: 8px 12px;
+    background: #eeb76b;
+    color: black;
+    border-radius: 10px;
+    text-decoration: none; 
+    transition: 0.3s ease-in;
+    font-size: 18px;
+
+    &:hover{
+        color: white;
+        background: #9c3d54;
+
+    }
+
 }
