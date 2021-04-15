@@ -47,6 +47,8 @@ table {
 
 body{
     font-family: Tilium Light;
+    color: #eeb76b;
+    background-color: #310b0b;
 }
 
 body h2{
@@ -60,7 +62,6 @@ body h3{
 h2,h3,h4,h5,h6, p {
     margin-bottom: 20px;
 }
-
 /* Header */
 .header{
     position: fixed;
@@ -110,6 +111,70 @@ h2,h3,h4,h5,h6, p {
         }
     }
     
+}
+
+//  Footer
+.footer{
+    font-size: 18px;
+    background-color: #e2703a;
+    color: #fff;
+
+    a{
+        text-decoration: none;
+        color: #fff;
+        transition: 0.5s;
+
+        &:hover{
+            font-size: 20px;
+            letter-spacing: 0.05em;
+            color: #310b0b;
+        }
+    }
+
+    .shell{
+        padding: 40px 40px;
+
+        .footer__cols{
+            display: flex;
+            align-items: center;
+            gap: 70px;
+
+            .footer__col{
+                flex: 1 1 0 ;
+                img{
+                    width: 154px;
+                    height: 150px;
+                }
+
+                .footer__nav{
+                    float: left;
+                    margin-left: 20px;
+
+                    a{
+                        padding: 10px;
+                    }
+
+                    li{    
+                        + li{
+                            margin-top: 20px;
+                        }
+                    }
+                }
+
+                .footer__content{
+                    width: 70%;
+                    margin: 0;
+                    h3{
+                        font-weight: 800;
+                    }
+                }
+            }
+        }
+
+        .footer__copyright {
+            margin-top: 20px;
+        }
+    }
 }
 
 // Btn

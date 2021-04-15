@@ -20,13 +20,16 @@
     }
 }
 
-// Continue Watching Section
-.section__continue{
+// Section Movies
+.section__movies{
     margin: 100px 0px;
-
     .shell{
         width: auto;
         padding: 0px 80px;
+
+        .continue__head{
+            margin-bottom: 50px
+        }
 
         .movies{
             color:#fff;
