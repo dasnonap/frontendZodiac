@@ -1,3 +1,13 @@
-<h1>listing works
-    
-</h1>
+<div class="searchform">
+    <div class="shell">
+        <h2>
+            Search Results
+        </h2>
+
+        <form [formGroup]="searchForm" class="search__form">
+            <input type="text" placeholder="Search ..." class="search__value" formControlName = "search__value">
+
+            <button  (click)="onSubmit()" class="search__submit"></button>
+        </form>
+    </div>
+</div>

@@ -6,7 +6,7 @@ import { ListingComponent } from '../components/listing/listing.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'kurtest', component: ListingComponent },
+  { path: 'search', component: ListingComponent },
 ];
 
 @NgModule({
