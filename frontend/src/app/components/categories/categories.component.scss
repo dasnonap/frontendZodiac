@@ -1,60 +1,52 @@
-.searchform{
-    width: 100%;
-    height: 500px;
-    text-align: center;
-
+.categories{
     .shell{
         padding: 150px 100px;
+        text-align: center;
+    }
 
-        .search__form{
-            padding-top: 40px;
+    .categories__nav{
+        margin-top:50px;
 
-            .search__value{
-                height: 25px;
-                width: 300px;
-                margin-right: 35px;
-                border: unset;
-                background: #310b0b;
-                border-bottom: 1px solid #eeb76b;
-                color: #cfd0d1;
-                font-size: 17px;
-                letter-spacing: 0.06em;
-                font-style: italic;
-                padding: 5px 10px;
+        ul{
+            li{
+                display: inline;
 
-                &::placeholder {
-                    color: #7a7b7d;
-                    font-size: 1.3em;
+                + li{
+                    margin-left: 50px
                 }
 
-                &:focus{
-                    outline: unset !important;
-                }
-            }
+                a{
+                    color: white;
+                    text-decoration: none;
+                    font-size: 20px;
+                    padding: 10px 0px;
+                    position: relative;
+                    transition: 0.5s ease;
 
-            .search__submit{
-                padding: 20px 20px;
-                background-image: url(../../../assets/images/search_icon.png);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-color: unset;
-                background-size: contain;
-                border:unset;
-                transition: all 1s;
-                
-                &:focus{
-                    outline: unset !important;
-                }
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 20px;
+                        height: 1px;
+                        background-color: #eeb76b;
+                    }
 
-                &:hover{
-                    cursor: pointer;
-                    transform: rotate(1turn) scale(1.4);
+                    &.is-active{
+                        border: 1px solid #eeb76b;
+                        padding: 10px;
+                        &::after{
+                            display: none;
+                            background-color: #fff;
+                        }
+                    }
+
                 }
             }
         }
     }
 }
-
 
 // Section Movies
 .section__movies{
