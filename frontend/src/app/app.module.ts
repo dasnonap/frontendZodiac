@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './components/app-component/app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
