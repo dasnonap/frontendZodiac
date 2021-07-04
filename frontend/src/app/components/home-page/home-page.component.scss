@@ -30,20 +30,17 @@
         .continue__head{
             margin-bottom: 50px
         }
-
-        .movies{
-            color:#fff;
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-
-            .movie{
+        
+        .carousel .carousel-container{
+            cursor: auto !important;
+        }
+        
+        .carousel{
+            z-index: 0;
+            .carousel-cell--movie{
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                position:relative;
-                width: 324px;
-                height: 316px;
 
                 &:hover{
                     .movie__title{
@@ -72,8 +69,6 @@
                     .img{
                         transition: 0.5s ease-in-out;
                         border-radius: 8px;
-                        width: 324px;
-                        height: 316px;
                     }
                 }
 

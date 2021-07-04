@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
-
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { AppComponent } from './components/app-component/app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatTabsModule,
     HttpClientModule,
+    IvyCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
