@@ -10,8 +10,11 @@ export class FilmsService {
 	constructor(private http: HttpClient) { }
 
 	getFilms(): Observable<any>{
-		console.log('films');
 		
-		return this.http.get("https://localhost:4223/api/movies");
+		return this.http.get("https://localhost:4223/api/movies/listing?page_id=2");
+	}
+
+	getFilmThumbnail( url: string ): Observable<any>{
+		return this.http.get( url );
 	}
 }

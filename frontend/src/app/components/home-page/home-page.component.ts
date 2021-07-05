@@ -11,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class HomePageComponent implements OnInit {
 	private subscription:Subscription;
-	films: Film[] = [];
+	public films: Film[] = [];
  	constructor(
 		private filmsService: FilmsService,
 		
@@ -21,18 +21,29 @@ export class HomePageComponent implements OnInit {
 		}
 
   	ngOnInit(): void {
-		this.getAdverts();
-		console.log('erewrewre');
+		this.getFilms();
   	}
 
-	getAdverts(){
-		this.subscription.add(this.filmsService.getFilms().subscribe((response: JSON) => {
-			console.log(response);
+	getFilms(){
+		this.subscription.add(this.filmsService.getFilms().subscribe((response: JSON) => {			
+			let json_string = JSON.stringify(response);
+			let json_array = JSON.parse( json_string );
 			
-			this.films = response["ads"];
+			if( response == null ){
+				this.films = [];
+			}
+
+			json_array.forEach(element => {
+				this.films.push( <Film>element );
+			});	
 		  },
 		  (errorResponse: HttpErrorResponse) => {
 			console.log(errorResponse);
 		  }));
+	}
+
+	getFilmImage( film: Film ){
+		let posterUrl = atob(film.posterImage);
+		return posterUrl + '/?width=250&height=360';
 	}
 }

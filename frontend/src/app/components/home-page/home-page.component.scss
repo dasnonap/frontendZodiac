@@ -37,6 +37,7 @@
         
         .carousel{
             z-index: 0;
+
             .carousel-cell--movie{
                 display: flex;
                 flex-direction: column;
@@ -64,11 +65,16 @@
 
                 .movie__image{
                     position:absolute;
+                    width: 350px;
+                    height: 300px;
                     z-index:-1;
 
                     .img{
                         transition: 0.5s ease-in-out;
                         border-radius: 8px;
+                        width: auto;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
 
@@ -77,6 +83,13 @@
                     transition: 0.5s ease-in-out;
                     opacity: 0;
                     padding: 20px 20px 0px 20px;
+
+                    h3{
+                        font-size: 24px;
+                        color: white;
+                        font-weight: bold;
+
+                    }
                 }
 
                 .movie__description{

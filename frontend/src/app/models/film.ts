@@ -2,7 +2,7 @@ export class Film{
     id: number;
     name: string;
     actors: string;
-    image: string;
+    posterImage: string;
     year: string;
     genres: string;
     description: string;
