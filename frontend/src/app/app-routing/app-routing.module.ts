@@ -5,11 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from '../components/home-page/home-page.component';
 import { ListingComponent } from '../components/listing/listing.component';
 import { CategoriesComponent } from '../components/categories/categories.component';
+import { LoginComponent } from '../components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'search', component: ListingComponent },
   { path: 'categories', component: CategoriesComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

@@ -21,6 +21,7 @@ export class HomePageComponent implements OnInit {
 		}
 
   	ngOnInit(): void {
+		console.log( localStorage );
 		this.getFilms();
   	}
 
