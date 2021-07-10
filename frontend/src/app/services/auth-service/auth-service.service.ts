@@ -15,8 +15,9 @@ export class AuthServiceService {
 
   isLoggedIn(): boolean{
     const token = localStorage.getItem("JWT_TOKEN");
-    if (token == null) return false;
     
+    if (token == null) return false;
+    console.log( token );
     const decodedToken: JSON = decode(token);
     
     if (decodedToken["exp"]*1000 < new Date().getTime()) {
