@@ -13,6 +13,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './auth-interceptor';
+import { SingleMovieComponent } from './components/single-movie/single-movie.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthInterceptor } from './auth-interceptor';
     HomePageComponent,
     ListingComponent,
     CategoriesComponent,
-    LoginComponent
+    LoginComponent,
+    SingleMovieComponent
   ],
   imports: [
     BrowserModule,

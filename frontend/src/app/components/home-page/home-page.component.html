@@ -24,7 +24,7 @@
 </div>
 
 
-<section class="section__movies">
+<section class="section__movies" [ngClass]="{'is-loading' : isLoading == true}">
     <div class="shell">
 
         <div class="continue__head">
@@ -49,98 +49,40 @@
                     </p>
                 </div>
         
-                <a href="/test" class="movie__action"></a>
+                <a href="/movie" class="movie__action"></a>
             </div>            
         </carousel>
     </div>
 </section>
 
-<section class="section__movies">
+<section class="section__movies" [ngClass]="{'is-loading' : isLoading == true}">
     <div class="shell">
 
         <div class="continue__head">
             <h2>Suggested Movies</h2>
         </div>
 
-        <div class="movies">
-            <div class="movie">
+        <carousel [height]="300" [cellWidth]="33" [cellsToShow]="4" [loop]="true" [autoplay]="true" [autoplayInterval]="5000" [arrowsOutside]="true">   
+            <div class="carousel-cell carousel-cell--movie" *ngFor="let film of suggestedFilms" >
                 <div class="movie__image">
-                    <img src="https://picsum.photos/340/400" alt="" class="img">
+                    <img [src]="getFilmImage(film)" alt="" class="img">
                 </div>
-
+        
                 <div class="movie__title">
                     <h3>
-                        Film Name
+                        {{ film.name }}
                     </h3>
                 </div>
-
+        
                 <div class="movie__description">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
+                        {{ film.description }}
                     </p>
                 </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-            
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/400/250" alt="" class="img">
-                </div>
-
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-        </div>
+        
+                <a href="/movie" class="movie__action"></a>
+            </div>            
+        </carousel>
     </div>
 </section>
 
