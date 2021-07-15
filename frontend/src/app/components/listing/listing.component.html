@@ -5,7 +5,7 @@
         </h2>
 
         <form [formGroup]="searchForm" class="search__form">
-            <input type="text" placeholder="Search ..." class="search__value" formControlName = "search__value">
+            <input type="text" placeholder="Search ..." class="search__value" formControlName="field">
 
             <button  (click)="onSubmit()" class="search__submit"></button>
         </form>
@@ -14,254 +14,27 @@
 
 <section class="section__movies">
     <div class="shell">
-        <div class="movies">
-            <div class="movie">
+        <carousel [height]="300" [cellWidth]="33" [cellsToShow]="4" [loop]="true" [autoplay]="true" [autoplayInterval]="5000" [arrowsOutside]="true">   
+            <div class="carousel-cell carousel-cell--movie" *ngFor="let film of films" >
                 <div class="movie__image">
-                    <img src="https://picsum.photos/400/250" alt="" class="img">
+                    <img [src]="getFilmImage(film, 250, 360)" alt="" class="img">
                 </div>
-
+        
                 <div class="movie__title">
                     <h3>
-                        Film Name
+                        {{ film.name }}
                     </h3>
                 </div>
-
+        
                 <div class="movie__description">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
+                        {{ film.description }}
                     </p>
                 </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<section class="section__movies">
-    <div class="shell">
-        <div class="movies">
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/400/250" alt="" class="img">
-                </div>
-
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<section class="section__movies">
-    <div class="shell">
-        <div class="movies">
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/400/250" alt="" class="img">
-                </div>
-
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-        </div>
+        
+                <a href="/movie" class="movie__action"></a>
+            </div>            
+        </carousel>
+       
     </div>
 </section>

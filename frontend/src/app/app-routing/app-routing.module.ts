@@ -11,7 +11,7 @@ import { AuthGardServiceService } from '../services/auth-gard/auth-gard-service.
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [AuthGardServiceService] },
-  { path: 'search', component: ListingComponent },
+  { path: 'search', component: ListingComponent, canActivate: [AuthGardServiceService]},
   { path: 'categories', component: CategoriesComponent },
   { path: 'movie', component: SingleMovieComponent },
   { path: 'login', component: LoginComponent },

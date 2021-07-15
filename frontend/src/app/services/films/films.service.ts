@@ -16,10 +16,14 @@ export class FilmsService {
 
 	getFilm(): Observable<any>{
 		
-		return this.http.get( "https://localhost:4223/api/movies/" + 17);
+		return this.http.get( "https://localhost:4223/api/movies/" + 17 );
 	}
 
 	getFilmThumbnail( url: string ): Observable<any>{
 		return this.http.get( url );
+	}
+
+	getSearchResult( search_query: string): Observable<any>{
+		return this.http.get( "https://localhost:4223/api/movies/search?s=" + search_query );
 	}
 }

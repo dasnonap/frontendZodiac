@@ -67,19 +67,17 @@
             margin-bottom: 50px
         }
 
-        .movies{
-            color:#fff;
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
+        .carousel .carousel-container{
+            cursor: auto !important;
+        }
+        
+        .carousel{
+            z-index: 0;
 
-            .movie{
+            .carousel-cell--movie{
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                position:relative;
-                width: 324px;
-                height: 316px;
 
                 &:hover{
                     .movie__title{
@@ -103,13 +101,16 @@
 
                 .movie__image{
                     position:absolute;
+                    width: 350px;
+                    height: 300px;
                     z-index:-1;
 
                     .img{
                         transition: 0.5s ease-in-out;
                         border-radius: 8px;
-                        width: 324px;
-                        height: 316px;
+                        width: auto;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
 
@@ -118,6 +119,13 @@
                     transition: 0.5s ease-in-out;
                     opacity: 0;
                     padding: 20px 20px 0px 20px;
+
+                    h3{
+                        font-size: 24px;
+                        color: white;
+                        font-weight: bold;
+
+                    }
                 }
 
                 .movie__description{
