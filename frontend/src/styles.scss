@@ -84,3 +84,40 @@ h2,h3,h4,h5,h6, p {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body::before{
+    pointer-events: none;
+	z-index: 999;
+	position: fixed;
+	opacity: 0;
+	transition: opacity .3s ;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, .8);
+}
+
+body::after{
+    pointer-events: none;
+	z-index: 1000;
+	position: fixed;
+	content: '';
+	opacity: 0;
+	transition:  opacity .3s;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 170px;
+	height: 170px;
+	background: url('./assets/images/spinner.svg') 0 0 no-repeat;
+	background-size: cover;
+
+}
+
+body.is-loading:before ,
+body.is-loading:after {
+	pointer-events: initial;
+	opacity: 1;
+}

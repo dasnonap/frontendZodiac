@@ -13,7 +13,11 @@ export class HomePageComponent implements OnInit {
 	private subscription:Subscription;
 	public films: Film[] = [];
 	public suggestedFilms: Film[] = [];
+	public featuredFilm: Film;
 	public isLoading: boolean;
+	private body = document.getElementsByTagName('body')[0];
+	
+	 
 
  	constructor(
 		private filmsService: FilmsService,
@@ -24,14 +28,18 @@ export class HomePageComponent implements OnInit {
 		}
 
   	ngOnInit(): void {
-		console.log( localStorage );
-		
 		this.getFilms();
 		this.getSuggestedFilms();
+		
+		this.body.classList.add("is-loading");
+		setTimeout(() => {
+			this.body.classList.remove("is-loading");  
+		}, 2000);
+		this.getFeaturedFilm();
   	}
 
 	getFilms(){
-		this.isLoading = true;
+		
 		this.subscription.add(this.filmsService.getFilms(1).subscribe((response: JSON) => {			
 			let json_string = JSON.stringify(response);
 			let json_array = JSON.parse( json_string );
@@ -43,7 +51,7 @@ export class HomePageComponent implements OnInit {
 			json_array.forEach(element => {
 				this.films.push( <Film>element );
 			});	
-			this.isLoading = false;
+			
 		  },
 		  (errorResponse: HttpErrorResponse) => {
 			console.log(errorResponse);
@@ -51,7 +59,6 @@ export class HomePageComponent implements OnInit {
 	}
 
 	getSuggestedFilms(){
-		this.isLoading = true;
 		this.subscription.add(this.filmsService.getFilms(2).subscribe((response: JSON) => {			
 			let json_string = JSON.stringify(response);
 			let json_array = JSON.parse( json_string );
@@ -63,15 +70,28 @@ export class HomePageComponent implements OnInit {
 			json_array.forEach(element => {
 				this.suggestedFilms.push( <Film>element );
 			});	
-			this.isLoading = false;
 		  },
 		  (errorResponse: HttpErrorResponse) => {
 			console.log(errorResponse);
 		  }));
 	}
 
-	getFilmImage( film: Film ){
+	getFeaturedFilm(){
+		this.subscription.add(this.filmsService.getFilm().subscribe((response: JSON) => {			
+			let json_string = JSON.stringify(response);
+			let json_array = JSON.parse( json_string );
+
+			this.featuredFilm = <Film>json_array;
+			
+		  },
+		  (errorResponse: HttpErrorResponse) => {
+			console.log(errorResponse);
+		  }));
+	}
+
+	getFilmImage( film: Film, width, height){
 		let posterUrl = atob(film.posterImage);
-		return posterUrl + '/?width=250&height=360';
+		
+		return posterUrl + '/?width=' + width + '&height=' + height;
 	}
 }
