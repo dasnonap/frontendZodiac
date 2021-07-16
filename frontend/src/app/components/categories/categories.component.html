@@ -7,31 +7,31 @@
         <div class="categories__nav">
             <ul>
                 <li>
-                    <a href="#" class="is-active"> Action </a>
+                    <a href="#" (click)="onCategoryClick($event)" > Action </a>
                 </li>
     
                 <li>
-                    <a href="#"> Comedy </a>
+                    <a href="#" (click)="onCategoryClick($event)" > Comedy </a>
                 </li>
     
                 <li>
-                    <a href="#"> Romantic </a>
+                    <a href="#" (click)="onCategoryClick($event)" > Romantic </a>
                 </li>
     
                 <li>
-                    <a href="#"> Adventure </a>
+                    <a href="#" (click)="onCategoryClick($event)" > Adventure </a>
                 </li>
     
                 <li>
-                    <a href="#"> Musical </a>
+                    <a href="#" (click)="onCategoryClick($event)" > Musical </a>
                 </li>
     
                 <li>
-                    <a href="#"> Drama </a>
+                    <a href="#" (click)="onCategoryClick($event)" > Drama </a>
                 </li>
 
                 <li>
-                    <a href="#"> Historical </a>
+                    <a href="#" (click)="onCategoryClick($event)" > Historical </a>
                 </li>
             </ul>
         </div>
@@ -39,86 +39,39 @@
 </section>
 
 
-<section class="section__movies">
+<section class="section__movies" >
     <div class="shell">
-        <div class="movies">
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/400/250" alt="" class="img">
-                </div>
+        <div class="continue__head">
+            <h2 *ngIf="films.length == 0">
+                No results found for {{ this.content }} Category, select another category
+            </h2>
 
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
-            <div class="movie">
-                <div class="movie__image">
-                    <img src="https://picsum.photos/324/250" alt="" class="img">
-                </div>
-                <div class="movie__title">
-                    <h3>
-                        Film Name
-                    </h3>
-                </div>
-
-                <div class="movie__description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe totam ut tenetur itaque dolorem dolore.
-                    </p>
-                </div>
-
-                <a href="/test" class="movie__action"></a>
-            </div>
-
+            <h2 *ngIf="films.length != 0">
+                Results for: {{ this.content }}
+            </h2>
         </div>
+
+        <carousel [height]="300" [cellWidth]="33" [cellsToShow]="4" [loop]="true" [autoplay]="true" [autoplayInterval]="5000" [arrowsOutside]="true" [ngClass]="{'is-hidden' : films.length == 0}">   
+            <div class="carousel-cell carousel-cell--movie" *ngFor="let film of films" >
+                <div class="movie__image">
+                    <img [src]="getFilmImage(film, 250, 360)" alt="" class="img">
+                </div>
+        
+                <div class="movie__title">
+                    <h3>
+                        {{ film.name }}
+                    </h3>
+                </div>
+        
+                <div class="movie__description">
+                    <p>
+                        {{ film.description }}
+                    </p>
+                </div>
+        
+                <a href="/movie" class="movie__action"></a>
+            </div>            
+        </carousel>
+       
     </div>
 </section>

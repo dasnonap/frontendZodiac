@@ -17,7 +17,6 @@ export class HomePageComponent implements OnInit {
 	public isLoading: boolean;
 	private body = document.getElementsByTagName('body')[0];
 	
-	 
 
  	constructor(
 		private filmsService: FilmsService,
@@ -28,6 +27,9 @@ export class HomePageComponent implements OnInit {
 		}
 
   	ngOnInit(): void {
+		var header = document.getElementsByClassName('header')[0];
+		header.classList.toggle( "header--header-alt" );
+		header.classList.toggle( "controllable" );
 		this.getFilms();
 		this.getSuggestedFilms();
 		

@@ -1,6 +1,5 @@
 /* Header */
 .header{
-    position: fixed;
     font-size: 18px;
     border-radius: 5px;
     width: 100%;
@@ -46,7 +45,11 @@
             }
         }
     }
+}
 
+.header--header-alt{
+    position: fixed;
+   
     &.bg_color{
         transition: background-color 0.5s ease;
         background-color: #9c3d54;

@@ -26,4 +26,8 @@ export class FilmsService {
 	getSearchResult( search_query: string): Observable<any>{
 		return this.http.get( "https://localhost:4223/api/movies/search?s=" + search_query );
 	}
+
+	getCategoryResult( category: string): Observable<any>{
+		return this.http.get( "https://localhost:4223/api/movies/category?c=" + category );
+	}
 }

@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Film } from 'src/app/models/film';
@@ -28,6 +27,7 @@ export class ListingComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.searchForm = this.generateSearchForm();
+		console.log(this.films);
 	}
 
 	generateSearchForm(){

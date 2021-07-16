@@ -12,9 +12,19 @@
     </div>
 </div>
 
-<section class="section__movies">
+<section class="section__movies" >
     <div class="shell">
-        <carousel [height]="300" [cellWidth]="33" [cellsToShow]="4" [loop]="true" [autoplay]="true" [autoplayInterval]="5000" [arrowsOutside]="true">   
+        <div class="continue__head">
+            <h2 *ngIf="films.length == 0">
+                No results found, enter another keyword
+            </h2>
+
+            <h2 *ngIf="films.length != 0">
+               Search Results for: {{ this.searchForm.value.field }}
+            </h2>
+        </div>
+
+        <carousel [height]="300" [cellWidth]="33" [cellsToShow]="4" [loop]="true" [autoplay]="true" [autoplayInterval]="5000" [arrowsOutside]="true" [ngClass]="{'is-hidden' : films.length == 0}">   
             <div class="carousel-cell carousel-cell--movie" *ngFor="let film of films" >
                 <div class="movie__image">
                     <img [src]="getFilmImage(film, 250, 360)" alt="" class="img">

@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, HostListener, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,13 +6,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class AppComponent {
 	title = 'frontend';
-	films: any;
-
 	
-
-
-  
-  @HostListener('window:scroll', [])
+	@HostListener('window:scroll', [])
 	onWindowScroll() {
 		const scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 		if (scrollOffset >= 450) {
