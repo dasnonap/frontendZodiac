@@ -1,6 +1,7 @@
 // Hero Homepage
 .hero{
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: flex-end;
     color: #fff;
@@ -16,6 +17,15 @@
 
         .hero__content{
             width: 600px;
+        }
+    }
+
+    .hero__video{
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+        video{
+            width: 100%;
         }
     }
 }

@@ -10,7 +10,7 @@ export class AppComponent {
 	@HostListener('window:scroll', [])
 	onWindowScroll() {
 		const scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-		if (scrollOffset >= 450) {
+		if (scrollOffset >= 200) {
 			document.querySelectorAll('.controllable').forEach((c) => {
 				c.classList.add('bg_color');
 				// c.classList.remove('bg-transparent');

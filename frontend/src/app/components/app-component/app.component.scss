@@ -49,7 +49,7 @@
 
 .header--header-alt{
     position: fixed;
-   
+    z-index: 9999;
     &.bg_color{
         transition: background-color 0.5s ease;
         background-color: #9c3d54;

@@ -45,10 +45,6 @@ export class CategoriesComponent implements OnInit {
 				this.films = [];
 			}
 
-			// if( this.films != null ){
-			// 	this.films = [];
-			// }
-
 			json_array.forEach(element => {
 				this.films.push( <Film>element );
 			});	
@@ -67,6 +63,15 @@ export class CategoriesComponent implements OnInit {
 		let posterUrl = atob(film.posterImage);
 		
 		return posterUrl + '/?width=' + width + '&height=' + height;
+	}
+
+	getFilmMovieUrl( film: Film, getPageUrl: boolean ){
+		if( getPageUrl ){
+			return '/movie?id=' + film.appFilmId;
+		}
+
+		
+		return 'https://localhost:4223/api/movies/movie?id=' + film.appFilmId;
 	}
 
 }

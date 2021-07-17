@@ -1,5 +1,5 @@
 export class Film{
-    id: number;
+    appFilmId: number;
     name: string;
     actors: string;
     posterImage: string;

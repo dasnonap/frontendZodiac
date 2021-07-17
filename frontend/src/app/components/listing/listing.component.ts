@@ -72,4 +72,13 @@ export class ListingComponent implements OnInit {
 		
 		return posterUrl + '/?width=' + width + '&height=' + height;
 	}
+
+	getFilmMovieUrl( film: Film, getPageUrl: boolean ){
+		if( getPageUrl ){
+			return '/movie?id=' + film.appFilmId;
+		}
+
+		
+		return 'https://localhost:4223/api/movies/movie?id=' + film.appFilmId;
+	}
 }

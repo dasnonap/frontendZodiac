@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FilmsService } from '../../services/films/films.service'; 
 import { Film } from '../../models/film';
@@ -9,7 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   	templateUrl: './home-page.component.html',
   	styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, OnDestroy {
 	private subscription:Subscription;
 	public films: Film[] = [];
 	public suggestedFilms: Film[] = [];
@@ -26,23 +26,31 @@ export class HomePageComponent implements OnInit {
 			this.subscription = new Subscription();
 		}
 
+	ngOnDestroy(): void {
+		
+		this.subscription.unsubscribe();
+	}
+
   	ngOnInit(): void {
 		var header = document.getElementsByClassName('header')[0];
 		header.classList.toggle( "header--header-alt" );
 		header.classList.toggle( "controllable" );
+		this.getFeaturedFilm();
 		this.getFilms();
 		this.getSuggestedFilms();
 		
 		this.body.classList.add("is-loading");
 		setTimeout(() => {
-			this.body.classList.remove("is-loading");  
+			this.body.classList.remove("is-loading");
 		}, 2000);
-		this.getFeaturedFilm();
+
+		
   	}
 
 	getFilms(){
 		
-		this.subscription.add(this.filmsService.getFilms(1).subscribe((response: JSON) => {			
+		this.subscription.add(
+			this.filmsService.getFilms(1).pipe().subscribe((response: JSON) => {			
 			let json_string = JSON.stringify(response);
 			let json_array = JSON.parse( json_string );
 			
@@ -58,6 +66,7 @@ export class HomePageComponent implements OnInit {
 		  (errorResponse: HttpErrorResponse) => {
 			console.log(errorResponse);
 		  }));
+		console.log(this.subscription.closed);
 	}
 
 	getSuggestedFilms(){
@@ -95,5 +104,14 @@ export class HomePageComponent implements OnInit {
 		let posterUrl = atob(film.posterImage);
 		
 		return posterUrl + '/?width=' + width + '&height=' + height;
+	}
+
+	getFilmMovieUrl( film: Film, getPageUrl: boolean ){
+		if( getPageUrl ){
+			return '/movie?id=' + film.appFilmId;
+		}
+
+
+		return 'https://localhost:4223/api/movies/movie?id=' + film.appFilmId;
 	}
 }

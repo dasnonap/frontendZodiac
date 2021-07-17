@@ -15,8 +15,11 @@ export class FilmsService {
 	}
 
 	getFilm(): Observable<any>{
-		
 		return this.http.get( "https://localhost:4223/api/movies/" + 17 );
+	}
+
+	getFilmById(id: string): Observable<any>{
+		return this.http.get( "https://localhost:4223/api/movies/" + id );
 	}
 
 	getFilmThumbnail( url: string ): Observable<any>{

@@ -1,5 +1,10 @@
 <section class="video">
     <div class="shell">
-        <video src="https://localhost:4223/api/movies/movie" controls></video>
+        <h2>
+            {{ film.name }}
+        </h2>
+
+
+        <video src="{{ getFilmMovieUrl() }}" controls></video>
     </div>
 </section>
