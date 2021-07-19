@@ -1,10 +1,52 @@
 <section class="video">
     <div class="shell">
         <h2>
-            {{ film.name }}
+            Now Watching :           
         </h2>
+
+        <h1>
+            {{ film.name }}
+        </h1>
 
 
         <video src="{{ getFilmMovieUrl() }}" controls></video>
+    </div>
+</section>
+
+<section class="info">
+    <div class="shell">
+        <div class="info__content">
+            <div class="info__box">
+                <h2> Starring : </h2>
+                
+                <p>
+                    {{ film.actors }}
+                </p>
+            </div>
+
+            <div class="info__box">
+                <h2> Year of Release : </h2>
+                
+                <p>
+                    {{ film.year }}
+                </p>
+            </div>
+
+            <div class="info__box">
+                <h2> Genres : </h2>
+                
+                <p>
+                    {{ film.genres }}
+                </p>
+            </div>
+
+            <div class="info__box">
+                <h2> Description : </h2>
+                
+                <p>
+                    {{ film.description }}
+                </p>
+            </div>
+        </div>
     </div>
 </section>

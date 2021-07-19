@@ -1,6 +1,22 @@
 .video{
     .shell{
-        padding: 150px 100px;
+        padding: 50px 100px;
         text-align: center;
     }
+    h1{
+        font-size: 48px;
+        margin-bottom: 30px;
+    }
+}
+
+.info{
+    .shell{
+        padding: 0px 100px;
+    }
+
+    .info__box + .info__box{
+        margin-top: 50px;
+    }
+
+    margin-bottom: 50px;
 }
