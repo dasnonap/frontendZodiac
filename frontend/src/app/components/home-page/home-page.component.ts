@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 		}
 
 	ngOnDestroy(): void {
-		
+
 		this.subscription.unsubscribe();
 	}
 
@@ -38,6 +38,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 		this.getFeaturedFilm();
 		this.getFilms();
 		this.getSuggestedFilms();
+		
 		
 		this.body.classList.add("is-loading");
 		setTimeout(() => {
@@ -66,7 +67,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
 		  (errorResponse: HttpErrorResponse) => {
 			console.log(errorResponse);
 		  }));
-		console.log(this.subscription.closed);
 	}
 
 	getSuggestedFilms(){

@@ -33,7 +33,6 @@ export class RegisterComponent implements OnInit {
   }
 
   public onSubmit(){
-    console.log(this.regForm.value);
     if (this.regForm.valid){
       const credentials = this.regForm.value;
         

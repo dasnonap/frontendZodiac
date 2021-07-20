@@ -17,9 +17,8 @@ export class AuthServiceService {
     const token = localStorage.getItem("JWT_TOKEN");
     
     if (token == null) return false;
-    console.log( token );
     const decodedToken: JSON = decode(token);
-    
+
     if (decodedToken["exp"]*1000 < new Date().getTime()) {
       this.authOnLogout();
       return false;
@@ -33,6 +32,7 @@ export class AuthServiceService {
 
   getLoggedInUsername(): string {
     const token: JSON = this.decodeToken();
+    
     return token["username"];
   }
 

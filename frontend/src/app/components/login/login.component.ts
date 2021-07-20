@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
   public onSubmit(): void {
     if (this.loginForm.valid){
       const credentials = this.loginForm.value;
-      console.log(credentials.username);
       
       this.subscription.add(this.accountService.login(credentials).subscribe((response: any) => {
         if (response != "no")this.authService.authOnLogin(credentials.username, response);

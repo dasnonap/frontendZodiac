@@ -4,7 +4,14 @@ import { Component, HostListener, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+	public username: string;
+	ngOnInit(): void {
+		let token = localStorage.getItem("JWT_TOKEN");
+		let decodedJWT = JSON.parse(window.atob(token.split('.')[1]));
+
+		this.username = decodedJWT.username;
+	}
 	title = 'frontend';
 	
 	@HostListener('window:scroll', [])
@@ -13,7 +20,6 @@ export class AppComponent {
 		if (scrollOffset >= 200) {
 			document.querySelectorAll('.controllable').forEach((c) => {
 				c.classList.add('bg_color');
-				// c.classList.remove('bg-transparent');
 			});
 			
 			document.querySelectorAll('.controlable-logo').forEach((c) => {
@@ -21,7 +27,6 @@ export class AppComponent {
 			});
 		} else {
 			document.querySelectorAll('.controllable').forEach((c) => {
-				// c.classList.add('bg-transparent');
 				c.classList.remove('bg_color');
 			});
 			

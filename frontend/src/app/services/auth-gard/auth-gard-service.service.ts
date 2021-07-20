@@ -11,7 +11,6 @@ export class AuthGardServiceService implements CanActivate {
     private router: Router) {}
 
   canActivate(route: import("@angular/router").ActivatedRouteSnapshot, state: import("@angular/router").RouterStateSnapshot): boolean {
-    console.log('dsakdsadsadsa');
     if (this.authService.isLoggedIn()){
       return true;
     }

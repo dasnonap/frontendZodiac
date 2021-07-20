@@ -26,7 +26,6 @@ export class CategoriesComponent implements OnInit {
 		$event.preventDefault();
 		this.films = [];
 		let $target   = $event.target;
-		console.log( $event );
 		this.content  = $target.innerText;
 		let current = document.querySelector('.is-active');
 		if( current != null ){

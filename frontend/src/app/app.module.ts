@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './auth-interceptor';
 import { SingleMovieComponent } from './components/single-movie/single-movie.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SingleMovieComponent } from './components/single-movie/single-movie.com
     ListingComponent,
     CategoriesComponent,
     LoginComponent,
-    SingleMovieComponent
+    SingleMovieComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

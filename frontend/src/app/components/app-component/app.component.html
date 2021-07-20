@@ -8,6 +8,9 @@
         <div class="header__menu">
             <nav>
                 <ul>
+                    <li *ngIf="username != '' ">
+                        {{ username }}
+                    </li>
                     <li>
                         <a href="/search">
                             Search

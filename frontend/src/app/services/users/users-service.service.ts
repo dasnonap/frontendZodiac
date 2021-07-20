@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -16,11 +17,23 @@ export class UsersServiceService {
 	}
 
   login(user: any): Observable<any>{
-    console.log( user );
     let body = new FormData();
     body.append('username', user.username );
     body.append('password', user.password );
 
     return this.httpClient.post("https://localhost:4223/api/users/login", body);
+  }
+
+  register(user: any): Observable<any>{
+    let body = new FormData();
+
+    body.append( 'username', user.username );
+    body.append( 'fname', user.fname );
+    body.append( 'lname', user.lname );
+    body.append( 'password', user.password1 );
+    body.append( 'email', user.email );
+    body.append( 'iban', user.iban );
+    
+    return this.httpClient.post("https://localhost:4223/api/users/register", body);
   }
 }

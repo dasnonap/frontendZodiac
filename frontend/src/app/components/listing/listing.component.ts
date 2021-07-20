@@ -27,7 +27,6 @@ export class ListingComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.searchForm = this.generateSearchForm();
-		console.log(this.films);
 	}
 
 	generateSearchForm(){
